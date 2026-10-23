@@ -2,7 +2,7 @@
 
 Connect Perl/Tk keyboard input to a Tickit terminal interface, with a small
 helper to service IO::Async while Tk owns the event loop. Extracted from
-Audio::Nama, without Nama, Ecasound, or project-state dependencies.
+Audio::Nama.
 
 Tk and Tickit remain separate interfaces in one process. This does not embed
 a terminal emulator in a Tk widget.
@@ -11,7 +11,7 @@ a terminal emulator in a Tk widget.
 
 Requires Perl 5.36+, Tk, and Tickit 0.70+. The demo also needs IO::Async,
 Tickit::Async, Tickit::Widget::VBox, Tickit::Widget::Static, and
-Tickit::Widget::Entry. Tk needs an X display; Tickit needs a terminal.
+Tickit::Widget::Entry.
 
 ```sh
 cpanm --installdeps .
@@ -74,6 +74,10 @@ xvfb-run -a prove -lr t   # headless X11 integration tests, if Xvfb is installed
 
 Tests requiring a display skip when one is unavailable. Unit tests do not
 require an X display. Tests never substitute fake Tk or Tickit modules.
+
+## AI notice
+
+Generated with AI assistance.
 
 ## License
 

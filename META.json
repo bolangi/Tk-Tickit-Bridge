@@ -1,0 +1,63 @@
+{
+  "meta-spec": {
+    "version": 2,
+    "url": "https://metacpan.org/pod/CPAN::Meta::Spec"
+  },
+  "name": "Tk-TickitBridge",
+  "version": "0.001",
+  "abstract": "Forward Perl/Tk keyboard events to Tickit and service IO::Async from Tk",
+  "author": [
+    "Joel Roth"
+  ],
+  "license": [
+    "perl_5"
+  ],
+  "dynamic_config": false,
+  "release_status": "stable",
+  "generated_by": "Tk-TickitBridge packaging",
+  "prereqs": {
+    "configure": {
+      "requires": {
+        "perl": "5.036",
+        "Module::Build::Tiny": "0.034"
+      }
+    },
+    "build": {
+      "requires": {}
+    },
+    "runtime": {
+      "requires": {
+        "perl": "5.036",
+        "Tk": "0",
+        "Tickit": "0.70",
+        "Carp": "0",
+        "Scalar::Util": "0"
+      }
+    },
+    "test": {
+      "requires": {
+        "Test::More": "0.98",
+        "CPAN::Meta": "0",
+        "Pod::Simple": "0"
+      }
+    },
+    "develop": {
+      "recommends": {
+        "IO::Async": "0",
+        "Tickit::Async": "0",
+        "Tickit::Widgets": "0",
+        "Tickit::Widget::Entry": "0"
+      }
+    }
+  },
+  "provides": {
+    "Tk::TickitBridge": {
+      "file": "lib/Tk/TickitBridge.pm",
+      "version": "0.001"
+    },
+    "Tk::TickitBridge::Loop": {
+      "file": "lib/Tk/TickitBridge/Loop.pm",
+      "version": "0.001"
+    }
+  }
+}

@@ -5,7 +5,7 @@ use Carp qw(croak);
 use Scalar::Util qw(blessed weaken);
 use Tk ();
 
-our $VERSION = '0.001';
+our $VERSION = '0.002';
 
 sub new ($class, %args) {
     my $widget = $args{widget} // croak 'widget is required';

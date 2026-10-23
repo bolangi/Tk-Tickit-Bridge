@@ -304,10 +304,14 @@ or file descriptors. For that use L<Tk::Tickit::Bridge::Loop>, which periodicall
 calls C<loop_once(0)> while Tk owns the main loop. Callbacks remain cooperative:
 a blocking callback in either interface blocks both.
 
-=head1 AUTHOR AND LICENSE
+=head1 AUTHOR
 
-Copyright (c) 2026 Joel Roth. This is free software; you may redistribute it and/or modify it under the
-same terms as Perl itself.
-Extracted from Audio::Nama; see F<LICENSE>.
+Copyright (c) 2026 Joel Roth. 
+
+
+=head1 LICENSE
+
+This is free software; you may redistribute it and/or modify it under the
+same terms as Perl itself. Extracted from Audio::Nama; see F<LICENSE>.
 
 =cut

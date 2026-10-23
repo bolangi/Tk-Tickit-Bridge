@@ -51,7 +51,7 @@ my $pump = Tk::TickitBridge::Loop->new(
 )->start;
 ```
 
-`outside` preserves Nama's policy: forward keys received by Tk when the mouse
+`outside` preserves Audio::Nama's policy: forward keys received by Tk when the mouse
 pointer is outside the application's Tk windows. Use `always` or a coderef to
 choose another policy. No policy captures global keys or changes focus.
 
@@ -74,6 +74,10 @@ xvfb-run -a prove -lr t   # headless X11 integration tests, if Xvfb is installed
 
 Tests requiring a display skip when one is unavailable. Unit tests do not
 require an X display. Tests never substitute fake Tk or Tickit modules.
+
+## AI authorship
+
+AI was used to generate this code and documentation.
 
 ## License
 

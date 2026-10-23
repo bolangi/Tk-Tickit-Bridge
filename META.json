@@ -3,7 +3,7 @@
     "version": 2,
     "url": "https://metacpan.org/pod/CPAN::Meta::Spec"
   },
-  "name": "Tk-TickitBridge",
+  "name": "Tk-Tickit-Bridge",
   "version": "0.001",
   "abstract": "Forward Perl/Tk keyboard events to Tickit and service IO::Async from Tk",
   "author": [
@@ -14,7 +14,7 @@
   ],
   "dynamic_config": false,
   "release_status": "stable",
-  "generated_by": "Tk-TickitBridge packaging",
+  "generated_by": "Tk-Tickit-Bridge packaging",
   "prereqs": {
     "configure": {
       "requires": {
@@ -51,12 +51,12 @@
     }
   },
   "provides": {
-    "Tk::TickitBridge": {
-      "file": "lib/Tk/TickitBridge.pm",
+    "Tk::Tickit::Bridge": {
+      "file": "lib/Tk/Tickit/Bridge.pm",
       "version": "0.001"
     },
-    "Tk::TickitBridge::Loop": {
-      "file": "lib/Tk/TickitBridge/Loop.pm",
+    "Tk::Tickit::Bridge::Loop": {
+      "file": "lib/Tk/Tickit/Bridge/Loop.pm",
       "version": "0.001"
     }
   }

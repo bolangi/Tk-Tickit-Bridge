@@ -9,8 +9,8 @@ use Tickit::Async;
 use Tickit::Widget::VBox;
 use Tickit::Widget::Static;
 use Tickit::Widget::Entry;
-use Tk::TickitBridge;
-use Tk::TickitBridge::Loop;
+use Tk::Tickit::Bridge;
+use Tk::Tickit::Bridge::Loop;
 
 die "Run this demo in a terminal with an X display.\n" unless -t STDIN && -t STDOUT;
 my ($quit, $pump, $bridge, $tickit, $mw);
@@ -52,12 +52,12 @@ eval {
     $loop->add(IO::Async::Signal->new(
         name => 'INT', on_receipt => sub { $quit = 1 },
     ));
-    $bridge = Tk::TickitBridge->new(
+    $bridge = Tk::Tickit::Bridge->new(
         widget => $mw, term => $tickit->term,
         # Only this field forwards. The other Tk field edits normally.
         forward => sub ($source, @rest) { $source eq $forward_entry },
     )->install;
-    $pump = Tk::TickitBridge::Loop->new(widget => $mw, loop => $loop)->start;
+    $pump = Tk::Tickit::Bridge::Loop->new(widget => $mw, loop => $loop)->start;
     $vbox->set_window($tickit->rootwin);
     $entry->take_focus;
     $forward_entry->focus;

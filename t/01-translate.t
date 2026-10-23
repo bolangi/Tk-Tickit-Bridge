@@ -1,12 +1,12 @@
 use v5.36;
 use utf8;
 use Test::More;
-use Tk::TickitBridge;
+use Tk::Tickit::Bridge;
 
 # Exercise translation independently of an X display or terminal handles.
 my $bridge = bless {
     shift_mask => 1, control_mask => 4, alt_mask => 8,
-}, 'Tk::TickitBridge';
+}, 'Tk::Tickit::Bridge';
 my @cases = (
     ['a', 'a', 0, 'text', 'a', 0],
     ['A', 'A', 1, 'text', 'A', 0],

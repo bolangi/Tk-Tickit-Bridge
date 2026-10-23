@@ -9,8 +9,8 @@ META.json
 README.md
 TESTING.md
 examples/bridge-demo.pl
-lib/Tk/TickitBridge.pm
-lib/Tk/TickitBridge/Loop.pm
+lib/Tk/Tickit/Bridge.pm
+lib/Tk/Tickit/Bridge/Loop.pm
 t/00-load.t
 t/01-translate.t
 t/02-tk.t

@@ -1,8 +1,8 @@
 use v5.36;
 use utf8;
 use Test::More;
-use Tk::TickitBridge;
-use Tk::TickitBridge::Loop;
+use Tk::Tickit::Bridge;
+use Tk::Tickit::Bridge::Loop;
 
 my $mw = eval { MainWindow->new };
 plan skip_all => 'No usable X display (try xvfb-run -a prove -lr t)' unless $mw;
@@ -29,7 +29,7 @@ my $field = $mw->Entry->pack;
 my @original = $field->bindtags;
 my $all_count = 0;
 $mw->bind('all', '<KeyPress>' => sub { ++$all_count });
-my $bridge = Tk::TickitBridge->new(widget => $mw, term => $term,
+my $bridge = Tk::Tickit::Bridge->new(widget => $mw, term => $term,
     forward => 'always')->install;
 $bridge->install;
 my @installed = $field->bindtags;
@@ -93,7 +93,7 @@ is(scalar(grep { /TkTickitBridge_/ } $later->bindtags), 1,
     'attach is idempotent for new widget');
 $bridge->uninstall;
 
-my $selective = Tk::TickitBridge->new(widget => $mw, term => $term,
+my $selective = Tk::Tickit::Bridge->new(widget => $mw, term => $term,
     forward => sub ($source, @rest) { $source eq $later }, consume => 0)->install;
 $field->eventGenerate('<KeyPress>', -keysym => 'c');
 $later->focusForce;
@@ -105,7 +105,7 @@ is($later->get, 'd', 'consume false retains native handling');
 $selective->uninstall;
 
 my $loop = CountingLoop->new;
-my $pump = Tk::TickitBridge::Loop->new(widget => $mw, loop => $loop, interval => 1);
+my $pump = Tk::Tickit::Bridge::Loop->new(widget => $mw, loop => $loop, interval => 1);
 is($pump->start, $pump, 'start returns pump');
 $pump->start;
 my $turns = 0;
@@ -120,14 +120,14 @@ $pump->stop;
 
 my $weak;
 {
-    my $temporary = Tk::TickitBridge::Loop->new(widget => $mw, loop => $loop)->start;
+    my $temporary = Tk::Tickit::Bridge::Loop->new(widget => $mw, loop => $loop)->start;
     $weak = $temporary;
     Scalar::Util::weaken($weak);
 }
 ok(!defined $weak, 'timer does not retain pump');
 
 my $window = $mw->Toplevel;
-my $closed = Tk::TickitBridge->new(widget => $window, term => $term)->install;
+my $closed = Tk::Tickit::Bridge->new(widget => $window, term => $term)->install;
 $closed->enqueue(type => 'text', str => 'not delivered');
 $window->destroy;
 ok(eval { $closed->uninstall; 1 }, 'safe to uninstall after widget destruction');
@@ -142,7 +142,7 @@ $real_term->bind_event(key => sub ($term, $event, $info, @rest) {
     push @received, { str => $info->str };
     return 1;
 });
-my $real_bridge = Tk::TickitBridge->new(widget => $mw, term => $real_term);
+my $real_bridge = Tk::Tickit::Bridge->new(widget => $mw, term => $real_term);
 $real_bridge->enqueue(type => 'text', str => 'hello');
 $real_bridge->enqueue(type => 'key', str => 'F2');
 $mw->update;

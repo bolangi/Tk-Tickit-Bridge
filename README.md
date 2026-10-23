@@ -1,4 +1,4 @@
-# Tk-TickitBridge
+# Tk-Tickit-Bridge
 
 Connect Perl/Tk keyboard input to a Tickit terminal interface, with a small
 helper to service IO::Async while Tk owns the event loop. Extracted from
@@ -39,19 +39,19 @@ Ctrl-C, or `/quit` followed by Enter in the terminal entry.
 After constructing the two interfaces and adding Tickit::Async to your loop:
 
 ```perl
-my $bridge = Tk::TickitBridge->new(
+my $bridge = Tk::Tickit::Bridge->new(
     widget  => $mw,
     term    => $tickit->term,
     forward => 'outside',
 )->install;
 
-my $pump = Tk::TickitBridge::Loop->new(
+my $pump = Tk::Tickit::Bridge::Loop->new(
     widget => $mw,
     loop   => $loop,
 )->start;
 ```
 
-`outside` preserves Audio::Nama's policy: forward keys received by Tk when the mouse
+`outside` preserves Nama's policy: forward keys received by Tk when the mouse
 pointer is outside the application's Tk windows. Use `always` or a coderef to
 choose another policy. No policy captures global keys or changes focus.
 
@@ -74,10 +74,6 @@ xvfb-run -a prove -lr t   # headless X11 integration tests, if Xvfb is installed
 
 Tests requiring a display skip when one is unavailable. Unit tests do not
 require an X display. Tests never substitute fake Tk or Tickit modules.
-
-## AI authorship
-
-AI was used to generate this code and documentation.
 
 ## License
 

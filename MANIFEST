@@ -6,11 +6,16 @@ LICENSE
 MANIFEST
 MANIFEST.SKIP
 META.json
+META.yml
+README
 README.md
 TESTING.md
+Tk-Tickit-Bridge-0.001.tar.gz
 examples/bridge-demo.pl
 lib/Tk/Tickit/Bridge.pm
 lib/Tk/Tickit/Bridge/Loop.pm
+lib/Tk/TickitBridge.pm
+lib/Tk/TickitBridge/Loop.pm
 t/00-load.t
 t/01-translate.t
 t/02-tk.t

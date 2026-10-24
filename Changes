@@ -6,3 +6,5 @@ Revision history for Tk-Tickit-Bridge
     - Add configurable forwarding, private bindtags, attach and uninstall.
     - Add a cancellable Tk timer helper for IO::Async integration.
     - Include a standalone demo and automated tests.
+0.002  2026-10-23
+    - documentation and licensing

@@ -8,9 +8,7 @@ MANIFEST.SKIP
 META.json
 META.yml
 README
-README.md
 TESTING.md
-Tk-Tickit-Bridge-0.001.tar.gz
 examples/bridge-demo.pl
 lib/Tk/Tickit/Bridge.pm
 lib/Tk/Tickit/Bridge/Loop.pm
